@@ -1,0 +1,39 @@
+// This file describes our database tables in Prisma's own language.
+// Prisma reads this file and creates the real tables in PostgreSQL for us.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int             @id @default(autoincrement())
+  name      String
+  email     String          @unique
+  password  String
+  createdAt DateTime        @default(now())
+  sites     MonitoredSite[]
+}
+
+model MonitoredSite {
+  id        Int           @id @default(autoincrement())
+  url       String
+  name      String
+  userId    Int
+  user      User          @relation(fields: [userId], references: [id])
+  createdAt DateTime      @default(now())
+  checks    CheckResult[]
+}
+
+model CheckResult {
+  id             Int           @id @default(autoincrement())
+  siteId         Int
+  site           MonitoredSite @relation(fields: [siteId], references: [id])
+  status         String
+  responseTimeMs Int?
+  checkedAt      DateTime      @default(now())
+}
