@@ -59,7 +59,14 @@ async function deleteSite(req, res) {
       return res.status(403).json({ error: "You don't have permission to delete this site." });
     }
 
-    await prisma.monitoredSite.delete({ where: { id: siteId } });
+    // A site's check history rows point back at the site, so the database refuses to
+    // delete the site while those rows exist. We delete the history first, then the site.
+    // $transaction makes it all-or-nothing: if one step fails, neither change is kept,
+    // so we never end up with a half-deleted site.
+    await prisma.$transaction([
+      prisma.checkResult.deleteMany({ where: { siteId } }),
+      prisma.monitoredSite.delete({ where: { id: siteId } }),
+    ]);
 
     res.json({ message: "Site deleted successfully." });
   } catch (error) {

@@ -16,7 +16,8 @@
     "jsonwebtoken": "^9.0.2",
     "@prisma/client": "^5.20.0",
     "axios": "^1.7.7",
-    "node-cron": "^3.0.3"
+    "node-cron": "^3.0.3",
+    "nodemailer": "^6.9.15"
   },
   "devDependencies": {
     "prisma": "^5.20.0",
