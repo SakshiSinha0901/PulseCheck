@@ -1,0 +1,58 @@
+/* Design tokens: every colour and font the site uses, defined once.
+   Light is the default. The page's data-theme="dark" label switches to the dark set. */
+:root {
+  --bg: #f6f7f7;
+  --card: #ffffff;
+  --ink: #100e0b;
+  --muted: #6b6a64;
+  --line: #e5e5e1;
+  --soft: #efefec;
+  --chart: #4e4e5d;
+  --up: #1d7a4f;
+  --up-bg: #e6f2ea;
+  --down: #b5361f;
+  --down-bg: #fae7e2;
+  --down-tick: #da4a30;
+  --pend: #875a0c;
+  --pend-bg: #f7eed9;
+  --side: #100e0b;
+  --side-text: #b4b2ab;
+  --side-on: #2b2925;
+  --side-ink: #ffffff;
+  --field: #cfcfc9;
+  --on-ink: #ffffff; /* text on a button filled with --ink */
+  --shadow: 0 1px 2px rgba(16, 14, 11, 0.04), 0 12px 32px -18px rgba(16, 14, 11, 0.14);
+
+  --font-display: 'Inter Tight', 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --radius-control: 6px;
+  --radius-card: 10px;
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  --bg: #0e0e0d;
+  --card: #171716;
+  --ink: #f3f2ee;
+  --muted: #9a9990;
+  --line: #2a2926;
+  --soft: #1f1e1c;
+  --chart: #8f8fa3;
+  --up: #4cc38a;
+  --up-bg: #12301f;
+  --down: #f2705a;
+  --down-bg: #3a1812;
+  --down-tick: #e8553c;
+  --pend: #e0a23a;
+  --pend-bg: #33260c;
+  --side: #070706;
+  --side-text: #a8a69e;
+  --side-on: #22211f;
+  --side-ink: #f3f2ee;
+  --field: #3a3935;
+  --on-ink: #0e0e0d;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 12px 32px -18px rgba(0, 0, 0, 0.6);
+  color-scheme: dark;
+}
