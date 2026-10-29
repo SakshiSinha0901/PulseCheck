@@ -1,0 +1,178 @@
+/* Brand mark (used on auth pages now, and in the app shell later). */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  color: var(--ink);
+}
+.brand-mark {
+  width: 26px;
+  height: 26px;
+  border-radius: 7px;
+  background: var(--ink);
+  color: var(--on-ink);
+  display: grid;
+  place-items: center;
+  flex: none;
+}
+.brand-mark svg {
+  width: 16px;
+  height: 16px;
+}
+.brand-on-dark {
+  color: var(--side-ink);
+}
+.brand-on-dark .brand-mark {
+  background: var(--side-ink);
+  color: var(--side);
+}
+
+/* Two-column page: dark panel on the left, form on the right. */
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  min-height: 100vh;
+}
+.auth-side {
+  background: var(--side);
+  color: var(--side-ink);
+  padding: 40px 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 40px;
+}
+.auth-side h2 {
+  font-size: 52px;
+  margin: 0 0 28px;
+  max-width: 520px;
+}
+.mini {
+  border: 1px solid var(--side-on);
+  border-radius: 10px;
+  padding: 6px 18px;
+  background: var(--side-on);
+  max-width: 520px;
+}
+.mrow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  gap: 14px;
+  align-items: center;
+  padding: 12px 0;
+  border-top: 1px solid var(--side);
+  font-size: 14px;
+}
+.mrow:first-child {
+  border-top: 0;
+}
+.ticks {
+  display: flex;
+  gap: 3px;
+  height: 18px;
+}
+.ticks b {
+  width: 4px;
+  flex: none;
+  border-radius: 2px;
+  background: #6e6d7c;
+}
+.ticks b.d {
+  background: #e0573d;
+}
+.dpill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font: 500 12px var(--font-body);
+  color: var(--side-text);
+}
+.dpill i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #4cc38a;
+}
+.dpill.dn i {
+  background: #e0573d;
+}
+.auth-side .cap {
+  margin: 0;
+  font-size: 13px;
+  color: var(--side-text);
+}
+
+.auth-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 32px;
+}
+.auth-box {
+  width: 100%;
+  max-width: 400px;
+  min-width: 0;
+}
+.auth-box h1 {
+  font-size: 40px;
+  margin: 0 0 8px;
+}
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 28px;
+}
+.auth-form a {
+  font-weight: 500;
+}
+
+.pw {
+  position: relative;
+}
+.pw .input {
+  padding-right: 64px;
+}
+.eye {
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  height: 38px;
+  min-width: 56px;
+  border: 0;
+  background: transparent;
+  border-radius: 4px;
+  font: 500 13px var(--font-body);
+  color: var(--ink);
+  cursor: pointer;
+}
+.eye:hover {
+  background: var(--soft);
+}
+
+/* Phones: panel shrinks to a slim header, form comes first. */
+@media (max-width: 860px) {
+  .split {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .auth-side {
+    padding: 12px 16px 20px;
+    gap: 12px;
+  }
+  .auth-side h2 {
+    font-size: 32px;
+    margin: 0;
+  }
+  .mini,
+  .auth-side .cap {
+    display: none;
+  }
+  .auth-main {
+    align-items: flex-start;
+    padding: 28px 16px 48px;
+  }
+}

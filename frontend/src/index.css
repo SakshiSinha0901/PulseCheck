@@ -107,3 +107,82 @@ a {
   color: var(--pend);
   background: var(--pend-bg);
 }
+
+/* Form pieces shared by Sign up, Log in, Add site and Settings. */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.field label {
+  font-size: 13px;
+  font-weight: 500;
+}
+.input {
+  height: 46px;
+  width: 100%;
+  padding: 0 12px;
+  border: 1px solid var(--field);
+  border-radius: var(--radius-control);
+  background: var(--card);
+  color: var(--ink);
+  font: 400 15px var(--font-body);
+}
+.input:focus {
+  outline: none;
+  border-color: var(--ink);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--ink) 10%, transparent);
+}
+.input.bad {
+  border-color: var(--down);
+}
+.err {
+  font-size: 13px;
+  color: var(--down);
+}
+.banner {
+  padding: 12px 14px;
+  border-radius: 8px;
+  background: var(--down-bg);
+  color: var(--down);
+  font-size: 14px;
+}
+.notice {
+  padding: 12px 14px;
+  border-radius: 8px;
+  background: var(--soft);
+  font-size: 14px;
+}
+.wake {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 12px 14px;
+  border-radius: 8px;
+  background: var(--soft);
+  font-size: 13.5px;
+}
+.wake i {
+  flex: none;
+  width: 14px;
+  height: 14px;
+  margin-top: 4px;
+  border-radius: 50%;
+  border: 2px solid var(--field);
+  border-top-color: var(--ink);
+  animation: spin 0.9s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wake i {
+    animation: none;
+  }
+}
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

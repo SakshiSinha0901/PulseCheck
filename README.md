@@ -46,9 +46,9 @@ Each step is built, tested in the browser, committed and pushed before the next 
 | # | Step | Status |
 |---|------|--------|
 | 1 | Create the website project (Vite, React, React Router) | Done |
-| 2 | Design tokens, fonts (Inter Tight, Inter, JetBrains Mono) and light/dark theme switch | Written, being tested |
-| 3 | API helper, login state, protected routes, "waking server" message | Written, being tested |
-| 4 | Real Sign up and Log in pages | To do |
+| 2 | Design tokens, fonts (Inter Tight, Inter, JetBrains Mono) and light/dark theme switch | Done |
+| 3 | API helper, login state, protected routes, "waking server" message | Done |
+| 4 | Real Sign up and Log in pages | Written, being tested |
 | 5 | First online deploy on Vercel (with CORS tightening and SPA rewrite) | To do |
 | 6 | App shell: black sidebar on desktop, bottom tabs on phone | To do |
 | 7 | Monitors page (list of sites); needs a backend summary route first | To do |
