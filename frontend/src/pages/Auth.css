@@ -154,17 +154,18 @@
   background: var(--soft);
 }
 
-/* Phones: panel shrinks to a slim header, form comes first. */
+/* Phones: panel shrinks to a slim header, form comes first.
+   Left and right space is 28px everywhere, so both sides always match. */
 @media (max-width: 860px) {
   .split {
     grid-template-columns: minmax(0, 1fr);
   }
   .auth-side {
-    padding: 12px 16px 20px;
-    gap: 12px;
+    padding: 12px 28px 28px;
+    gap: 22px;
   }
   .auth-side h2 {
-    font-size: 32px;
+    font-size: 30px;
     margin: 0;
   }
   .mini,
@@ -173,6 +174,9 @@
   }
   .auth-main {
     align-items: flex-start;
-    padding: 28px 16px 48px;
+    padding: 28px 28px 40px;
+  }
+  .auth-box h1 {
+    font-size: 34px;
   }
 }
