@@ -115,18 +115,18 @@ a {
   gap: 6px;
 }
 .field label {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
 }
 .input {
-  height: 46px;
+  height: 48px;
   width: 100%;
   padding: 0 12px;
   border: 1px solid var(--field);
   border-radius: var(--radius-control);
   background: var(--card);
   color: var(--ink);
-  font: 400 15px var(--font-body);
+  font: 400 16px var(--font-body);
 }
 .input:focus {
   outline: none;

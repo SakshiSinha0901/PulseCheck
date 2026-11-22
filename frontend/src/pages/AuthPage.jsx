@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom'
 import { useAuth } from '../auth/useAuth'
 import Logo from '../components/Logo'
@@ -18,6 +18,7 @@ function SidePanel() {
       <Logo onDark />
       <div>
         <h2>Your sites, checked every 5 minutes.</h2>
+        <p className="audience">For developers and small teams who can’t afford surprise downtime.</p>
         <div className="mini" aria-hidden="true">
           {SAMPLE.map((s) => (
             <div className="mrow" key={s.name}>
@@ -56,6 +57,11 @@ export default function AuthPage({ kind }) {
   const [serverError, setServerError] = useState(null) // { status, message }
   const [busy, setBusy] = useState(false)
   const [slow, setSlow] = useState(false)
+
+  // Each page gets its own title in the browser tab and in search results.
+  useEffect(() => {
+    document.title = isSignup ? 'Create your free account – PulseCheck' : 'Log in – PulseCheck'
+  }, [isSignup])
 
   // Already logged in? Skip this page.
   if (isLoggedIn) return <Navigate to="/monitors" replace />
@@ -120,7 +126,7 @@ export default function AuthPage({ kind }) {
         <div className="auth-box">
           <h1>{isSignup ? 'Create your account' : 'Welcome back'}</h1>
           <p className="muted" style={{ margin: 0 }}>
-            {isSignup ? 'Alert emails go to the email address you sign up with.' : 'Log in to see how your sites are doing.'}
+            {isSignup ? 'Free to start. No credit card needed.' : 'Log in to see how your sites are doing.'}
           </p>
 
           <form className="auth-form" onSubmit={submit} noValidate>
@@ -177,6 +183,19 @@ export default function AuthPage({ kind }) {
               {busy ? (isSignup ? 'Creating account…' : 'Logging in…') : isSignup ? 'Create account' : 'Log in'}
             </button>
 
+            {isSignup && (
+              <p className="privacy">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <rect x="5" y="11" width="14" height="9" rx="2" />
+                  <path d="M8 11V8a4 4 0 018 0v3" />
+                </svg>
+                <span>
+                  We use your email only to send alerts about your websites. Read our <Link to="/privacy">Privacy policy</Link>.
+                  You can delete your account any time.
+                </span>
+              </p>
+            )}
+
             {slow && (
               <div className="wake" role="status">
                 <i aria-hidden="true" />
@@ -188,7 +207,7 @@ export default function AuthPage({ kind }) {
               </div>
             )}
 
-            <p className="muted" style={{ margin: 0, fontSize: 14, textAlign: 'center' }}>
+            <p className="muted auth-switch">
               {isSignup ? (
                 <>Already have an account? <Link to="/login">Log in</Link></>
               ) : (

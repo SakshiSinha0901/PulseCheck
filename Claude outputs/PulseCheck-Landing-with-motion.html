@@ -1,0 +1,119 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PulseCheck landing with motion</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"><style>
+body{margin:0}
+.pc,.pc *{box-sizing:border-box}
+.pc{font-family:'Inter',system-ui,sans-serif;color:#100e0b;background:#f6f7f7;font-size:16px;line-height:1.5;position:relative;overflow:hidden}
+.pc h1,.pc h2,.pc h3,.pc h4{font-family:'Inter Tight','Inter',sans-serif;font-weight:500;letter-spacing:-0.035em;line-height:1.05;margin:0;text-wrap:balance}
+.pc p{margin:0}
+.pc a{color:inherit}
+.pc .muted{color:#6b6a64}
+.pc .mono{font-family:ui-monospace,'SFMono-Regular',Menlo,monospace}
+.pc .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:48px;padding:0 22px;border-radius:6px;border:1px solid #100e0b;background:#100e0b;color:#fff;font:500 15px 'Inter',sans-serif;text-decoration:none;white-space:nowrap}
+.pc .btn.sec{background:#fff;color:#100e0b;border-color:#cfcfc9}
+.pc .btn.danger{background:#fff;color:#b5361f;border-color:#b5361f}
+.pc .btn.dangerfill{background:#b5361f;border-color:#b5361f;color:#fff}
+.pc .btn.block{width:100%}
+.pc .linkbtn{display:inline-flex;align-items:center;min-height:44px;font-weight:500;font-size:15px;text-decoration:none}
+.pc .logo{display:flex;align-items:center;gap:10px;font-weight:600;font-size:17px;min-height:44px}
+.pc .logo .mark{width:26px;height:26px;border-radius:7px;background:#100e0b;color:#fff;display:flex;align-items:center;justify-content:center;flex:none}
+.pc .logo.dark{color:#fff}
+.pc .logo.dark .mark{background:#fff;color:#100e0b}
+.pc .pill{display:inline-flex;align-items:center;gap:6px;height:26px;padding:0 10px;border-radius:13px;font-size:13px;font-weight:600}
+.pc .pill i{width:7px;height:7px;border-radius:50%;background:currentColor}
+.pc .pill.up{background:#e6f2ea;color:#1d7a4f}
+.pc .pill.down{background:#fae7e2;color:#b5361f}
+.pc .pill.wait{background:#f7eed9;color:#875a0c}
+.pc .ticks{display:flex;gap:3px;height:22px;align-items:flex-end}
+.pc .ticks span{flex:1;height:100%;border-radius:2px;background:#1d7a4f}
+.pc .ticks span.d{background:#da4a30}
+.pc .ticks span.n{background:#d2d1dd}
+.pc .card{background:#fff;border:1px solid #e5e5e1;border-radius:10px}
+.pc .field{display:flex;flex-direction:column;gap:6px}
+.pc .field label{font-size:14px;font-weight:500}
+.pc .input{height:48px;padding:0 12px;border:1px solid #cfcfc9;border-radius:6px;background:#fff;font:400 16px 'Inter',sans-serif;color:#100e0b;display:flex;align-items:center;width:100%}
+.pc .input.ph{color:#6b6a64}
+.pc .hint{font-size:13px;color:#6b6a64}
+.pc .eyebrow{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#6b6a64}
+.pc .side{background:#100e0b;color:#fff;width:240px;flex:none;display:flex;flex-direction:column;padding:20px 16px;gap:28px}
+.pc .nav{display:flex;flex-direction:column;gap:4px}
+.pc .nav a{display:flex;align-items:center;gap:12px;min-height:44px;padding:0 12px;border-radius:6px;text-decoration:none;color:#c9c8c2;font-size:15px;font-weight:500}
+.pc .nav a.on{background:#25231f;color:#fff}
+.pc .tabbar{background:#100e0b;display:flex;height:68px;position:sticky;bottom:0}
+.pc .tabbar a{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:#c9c8c2;font-size:13px;font-weight:500;text-decoration:none;min-height:44px}
+.pc .tabbar a.on{color:#fff}
+.pc .down-card{background:#fae7e2;border:1px solid #f0c4ba;border-radius:10px;display:flex;gap:14px;align-items:flex-start;padding:18px 20px}
+.pc .site{padding:18px 20px;display:flex;flex-direction:column;gap:14px}
+.pc .site .top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.pc .site .top>div:first-child{min-width:0}.pc .site .url{overflow-wrap:anywhere}.pc .site .top .pill{flex:none}.pc .site .name{font-weight:600;font-size:17px}
+.pc .site .url{font-size:14px;color:#6b6a64}
+.pc .site .stats{display:flex;gap:28px;font-size:14px;color:#6b6a64;flex-wrap:wrap}
+.pc .site .stats b{color:#100e0b;font-weight:600}
+.pc .num{width:34px;height:34px;border-radius:50%;background:#100e0b;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:15px;flex:none}
+.pc details,.pc .qa{border-top:1px solid #e5e5e1;padding:18px 0}
+.pc .qa h4{font-size:19px;letter-spacing:-0.02em;line-height:1.25;margin-bottom:6px}
+.pc .footer{background:#100e0b;color:#d8d7d1}
+.pc .footer a{color:#fff;text-decoration:none;display:inline-flex;align-items:center;min-height:44px}
+
+.pc [data-a],.pc [data-s]{will-change:transform,opacity}
+@media (max-width:520px){.pc [data-a],.pc [data-s]{opacity:1!important;transform:none!important}}
+.note{position:fixed;right:12px;bottom:12px;z-index:50;background:#100e0b;color:#fff;font:500 13px system-ui;padding:10px 14px;border-radius:8px;max-width:260px;line-height:1.4}
+</style></head><body><div class="pc" style="width:100%;max-width:1280px;margin:0 auto">
+<section style="background:radial-gradient(900px 420px at 15% -5%,#e9ebe6 0%,rgba(233,235,230,0) 70%),radial-gradient(700px 380px at 90% 10%,#e6e8ee 0%,rgba(230,232,238,0) 70%),#f6f7f7;padding:0 80px;position:relative;z-index:1;display:flow-root">
+<header style="display:flex;align-items:center;justify-content:space-between;height:76px"><div class="logo"><span class="mark"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l2-6 4 12 2-6h6"/></svg></span><span>PulseCheck</span></div>
+<nav style="display:flex;align-items:center;gap:28px;font-size:15px;font-weight:500"><a class="linkbtn" href="#how">How it works</a><a class="linkbtn" href="#faq">FAQ</a><a class="linkbtn" href="#">Log in</a><a class="btn" href="#">Start free</a></nav></header>
+<div style="text-align:center;max-width:820px;margin:0 auto;padding:56px 0 0;display:flex;flex-direction:column;align-items:center;gap:20px">
+<span class="eyebrow">For developers and small teams</span>
+<h1 style="font-size:68px;line-height:1.02">Know the moment your site goes down.</h1>
+<p style="font-size:20px;max-width:640px;color:#3d3b36">PulseCheck checks your website every 5 minutes and emails you when it stops working, so you hear it from us and not from a customer.</p>
+<div style="display:flex;gap:12px;margin-top:6px"><a class="btn" href="#" style="height:52px;padding:0 28px;font-size:16px">Start monitoring free</a><a class="btn sec" href="#how" style="height:52px;padding:0 24px;font-size:16px">See how it works</a></div>
+<p class="hint" style="font-size:14px">No credit card needed.</p>
+<ul style="list-style:none;margin:8px 0 0;padding:0;display:flex;gap:28px;font-size:15px;color:#3d3b36;flex-wrap:wrap;justify-content:center">
+<li style="display:flex;gap:8px;align-items:center"><span style="color:#1d7a4f"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Checks every 5 minutes</li>
+<li style="display:flex;gap:8px;align-items:center"><span style="color:#1d7a4f"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Email when it's down and when it's back</li>
+<li style="display:flex;gap:8px;align-items:center"><span style="color:#1d7a4f"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Free to start</li></ul></div>
+<div style="width:760px;margin:56px auto -150px;position:relative;z-index:2"><div class="card" style="padding:22px 24px;box-shadow:0 24px 60px -20px rgba(16,14,11,.28);text-align:left">
+<div data-a="0.0,0.15" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><span style="font-weight:600;font-size:17px">Monitors</span><span class="hint">Example data</span></div>
+<div data-a="0.75,0.95" data-drop="1" class="down-card" style="padding:12px 14px;margin-bottom:6px"><span style="color:#b5361f;flex:none"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8v5M12 16.5v.01"/><circle cx="12" cy="12" r="9"/></svg></span><div style="font-size:15px;color:#7d2514;font-weight:600">1 site is down</div></div>
+<div data-a="0.1,0.3" style="display:flex;flex-direction:column;gap:10px;padding:14px 0;border-top:1px solid #e5e5e1">
+<div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><div><div style="font-weight:600">Main website</div><div class="mono muted" style="font-size:13px">example.com</div></div><span class="pill up"><i></i>Up</span></div>
+<div class="ticks" data-s="0.2,0.45" role="img" aria-label="Last 20 checks"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div><div style="font-size:13px" class="muted">Uptime 99.9%</div></div><div data-a="0.35,0.55" style="display:flex;flex-direction:column;gap:10px;padding:14px 0;border-top:1px solid #e5e5e1">
+<div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><div><div style="font-weight:600">Checkout API</div><div class="mono muted" style="font-size:13px">api.example.com/health</div></div><span class="pill down"><i></i>Down</span></div>
+<div class="ticks" data-s="0.45,0.7" role="img" aria-label="Last 20 checks"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class="d"></span><span class="d"></span><span class="d"></span><span class="d"></span><span class="d"></span></div><div style="font-size:13px" class="muted">Uptime 94.2%</div></div><div data-a="0.6,0.8" style="display:flex;flex-direction:column;gap:10px;padding:14px 0;border-top:1px solid #e5e5e1">
+<div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><div><div style="font-weight:600">Docs</div><div class="mono muted" style="font-size:13px">docs.example.com</div></div><span class="pill up"><i></i>Up</span></div>
+<div class="ticks" data-s="0.7,0.9" role="img" aria-label="Last 20 checks"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div><div style="font-size:13px" class="muted">Uptime 100%</div></div></div></div>
+</section>
+<section id="how" style="background:#fff;padding:230px 80px 90px;position:relative;z-index:0">
+<div style="text-align:center;margin-bottom:48px"><span class="eyebrow">How it works</span><h2 style="font-size:44px;margin-top:10px">Three steps, then you can forget about it</h2></div>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:48px"><div style="display:flex;flex-direction:column;gap:12px"><span class="num">1</span>
+<h3 style="font-size:24px;letter-spacing:-0.025em;line-height:1.15">Add your website</h3><p class="muted" style="font-size:16px">Paste your web address. That is all we need.</p></div><div style="display:flex;flex-direction:column;gap:12px"><span class="num">2</span>
+<h3 style="font-size:24px;letter-spacing:-0.025em;line-height:1.15">We check it every 5 minutes</h3><p class="muted" style="font-size:16px">PulseCheck opens your site on a schedule and records if it answered, and how fast.</p></div><div style="display:flex;flex-direction:column;gap:12px"><span class="num">3</span>
+<h3 style="font-size:24px;letter-spacing:-0.025em;line-height:1.15">You get an email</h3><p class="muted" style="font-size:16px">The moment a check fails you get an email, and another when the site is back.</p></div></div>
+<div style="text-align:center;margin-top:56px"><a class="btn" href="#">Start monitoring free <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></section>
+<section id="faq" style="padding:90px 80px;background:#f6f7f7"><div style="display:grid;grid-template-columns:340px 1fr;gap:72px">
+<div><span class="eyebrow">Questions</span><h2 style="font-size:44px;margin-top:10px">Things people ask before signing up</h2></div>
+<div style="border-bottom:1px solid #e5e5e1"><div class="qa"><h4>How often do you check my website?</h4><p class="muted" style="font-size:16px">Every 5 minutes, all day. If a check fails, we mark the site as down.</p></div><div class="qa"><h4>How will I know if it goes down?</h4><p class="muted" style="font-size:16px">We send an email to the address you choose, when your site goes down and again when it comes back up.</p></div><div class="qa"><h4>Does it cost anything?</h4><p class="muted" style="font-size:16px">No. PulseCheck is free to start and you do not need a credit card.</p></div><div class="qa"><h4>What do you do with my email address?</h4><p class="muted" style="font-size:16px">We use it only to send you alerts about your websites. You can read the full policy on the Privacy page.</p></div><div class="qa"><h4>Can I delete my account?</h4><p class="muted" style="font-size:16px">Yes, at any time from Settings. Your websites and their check history are deleted with it.</p></div></div></div></section>
+<section style="background:#fff;padding:72px 80px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:18px">
+<h2 style="font-size:44px">Stop finding out from your customers.</h2><p class="muted" style="font-size:18px">Add your first website in under a minute.</p>
+<a class="btn" href="#" style="height:52px;padding:0 28px;font-size:16px">Start monitoring free</a><p class="hint">No credit card needed.</p></section>
+<footer class="footer" style="padding:56px 80px 36px"><div style="display:flex;justify-content:space-between;gap:48px">
+<div style="display:flex;flex-direction:column;gap:12px;max-width:380px"><div class="logo dark"><span class="mark"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l2-6 4 12 2-6h6"/></svg></span><span>PulseCheck</span></div><p style="font-size:15px">A simple, honest website monitor. Built by Sakshi, a final-year computer science student in India.</p></div>
+<div style="display:flex;gap:56px;font-size:15px">
+<div style="display:flex;flex-direction:column"><span class="eyebrow" style="color:#a9a8a2">Company</span><a href="#">About</a><a href="#">Contact: [contact email]</a></div>
+<div style="display:flex;flex-direction:column"><span class="eyebrow" style="color:#a9a8a2">Legal</span><a href="#">Privacy policy</a><a href="#">Terms</a></div></div></div>
+<p style="font-size:13px;color:#a9a8a2;margin-top:28px">© 2026 PulseCheck</p></footer></div><div class="note">Preview: scroll down slowly. The Monitors card builds itself as you scroll. The headline and buttons never move.</div><script>
+(function(){
+ var card=document.querySelector('[data-a]').closest('.card');
+ var A=[].slice.call(document.querySelectorAll('[data-a]')),S=[].slice.call(document.querySelectorAll('[data-s]'));
+ var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ function rng(el,k){return el.getAttribute(k).split(',').map(Number)}
+ function t(p,a,b){return Math.min(1,Math.max(0,(p-a)/(b-a)))}
+ function ease(x){return 1-Math.pow(1-x,3)}
+ function run(){
+  if(window.innerWidth<=520||reduce){A.forEach(function(e){e.style.opacity=1;e.style.transform='none'});S.forEach(function(e){e.style.transform='none';e.style.opacity=1});return}
+  var r=card.getBoundingClientRect(),vh=window.innerHeight;
+  var p=Math.min(1,Math.max(0,(vh-r.top)/(vh*0.95)));
+  A.forEach(function(e){var g=rng(e,'data-a'),x=ease(t(p,g[0],g[1])),d=e.hasAttribute('data-drop')?-16:16;e.style.opacity=x;e.style.transform='translateY('+(d*(1-x))+'px)'});
+  S.forEach(function(e){var g=rng(e,'data-s'),x=ease(t(p,g[0],g[1]));e.style.transformOrigin='left center';e.style.transform='scaleX('+x+')';e.style.opacity=x?1:0});
+ }
+ window.addEventListener('scroll',function(){requestAnimationFrame(run)},{passive:true});window.addEventListener('resize',run);run();
+})();
+</script></body></html>
