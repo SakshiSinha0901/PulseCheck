@@ -3,6 +3,7 @@ import ProtectedRoute from './auth/ProtectedRoute'
 import WakingBanner from './components/WakingBanner'
 import AuthPage from './pages/AuthPage'
 import DesignCheck from './pages/DesignCheck'
+import Landing from './pages/Landing'
 import TempMonitors from './pages/TempMonitors'
 
 // The map of the website: which address shows which page.
@@ -11,7 +12,8 @@ export default function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<DesignCheck />} />
+        <Route path="/" element={<Landing />} />
+        <Route path="/design-check" element={<DesignCheck />} />
         <Route path="/login" element={<AuthPage kind="login" />} />
         <Route path="/signup" element={<AuthPage kind="signup" />} />
         <Route element={<ProtectedRoute />}>
